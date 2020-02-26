@@ -1,16 +1,16 @@
 {
-  "name": "website_setup",
+  "name": "Parkly",
   "version": "1.0.0",
-  "description": "Network to showcase fullstack",
-  "main": "server.js",
+  "description": "Parkly",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "start": "node index.js",
+    "server": "nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "Andrew Hutzel",
+  "author": "Gustavo Bautista",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
