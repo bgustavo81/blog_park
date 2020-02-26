@@ -1,0 +1,198 @@
+.Arches { grid-area: Arches; }
+.GrandTeton { grid-area: GrandTeton; }
+.Zion { grid-area: Zion; }
+.Acadia { grid-area: Acadia; }
+.Glacier { grid-area: Glacier; }
+.Yosemite { grid-area: Yosemite; }
+.Rocky { grid-area: Rocky; }
+.Yellowstone { grid-area: Yellowstone; }
+.Capitol { grid-area: Capitol; }
+
+
+.GalleryContainer {
+    display: grid;
+    grid-template-areas: 
+        'Arches Arches Arches Arches GrandTeton GrandTeton GrandTeton GrandTeton'
+        'Acadia Acadia Zion Zion Zion Zion Glacier Glacier'
+        'Yosemite Yosemite Zion Zion Zion Zion Rocky Rocky'
+        'Yellowstone Yellowstone Yellowstone Yellowstone Capitol Capitol Capitol Capitol';
+    grid-column-gap: 42px;
+    grid-row-gap: 84px;
+    background-color: #f4f4f4;
+    padding: 54px;
+}
+
+.Arches { 
+    background-image: url("/images/Arches.jpg");
+    height: 420px;
+}
+
+.GrandTeton {
+    background-image: url("/images/GrandTeton.jpg");
+    height: 420px;
+}
+
+.Zion {
+    background-image: url("/images/Zion.jpg");
+    height: 928px;
+}
+
+.Acadia {
+    background-image: url("/images/Acadia.jpg");
+    height: 420px;
+}
+
+.Glacier {
+    background-image: url("/images/Glacier.jpg");
+    height: 420px;
+}
+
+.Yosemite {
+    background-image: url("/images/yosemite.jpg");
+    height: 420px;
+}
+
+.Rocky {
+    background-image: url("/images/Rocky.jpg");
+    height: 420px;
+}
+
+.Yellowstone {
+    background-image: url("/images/Yellowstone.jpg");
+    height: 420px;
+}
+
+.Capitol {
+    background-image: url("/images/Capitol.jpg");
+    height: 420px;
+}
+
+.GalleryContainer > div {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.5);;
+    color: #000000;
+    text-align: center;
+    font-size: 24px;
+}
+
+.GalleryTitle {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding-top: 54px;
+    font-weight: bold;
+}
+
+.GalleryTitle h2 {
+    margin: 0 0 54px 0;
+    font-size: 48px;
+    text-decoration: underline;
+}
+
+.GalleryContainer p {
+    position: relative;
+    top: -64px;
+}
+
+
+
+.HoverBackground {
+    background-color: rgba(0,0,0,0.5);
+    color: #f4f4f4;
+    top: 0px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.GalleryImageContainer:hover .HoverBackground {
+    opacity: 1;
+}
+
+.HoverBackgroundText {
+    position: relative;
+    top: 180px;
+    background-color: #197EAB;
+    margin: auto auto;
+    height: 36px;
+    line-height: 36px;
+    width: 160px;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+.ReviewTitle {
+    font-size: 32px;
+}
+
+.ReviewText {
+    background-color: rgba(0,0,0,0.82);
+    color: #f4f4f4;
+    padding: 32px;
+    line-height: 1.4em;
+    font-size: 24px;
+}
+
+.ReviewContent {
+    max-width: 920px;
+    margin: 0 auto 40px auto;
+}
+
+.ReviewText .MuiButton-sizeLarge {
+    height: 64px;
+    width: 140px;
+    font-size: 18px;
+}
+
+@media all and (max-width: 1400px) {
+    .GalleryContainer {
+        display: grid;
+        grid-template-areas: 
+            'Arches Arches GrandTeton GrandTeton GrandTeton GrandTeton'
+            'Acadia Acadia Acadia Acadia Glacier Glacier'
+            'Yosemite Yosemite Zion Zion Zion Zion'
+            'Rocky Rocky Rocky Rocky Rocky Rocky'
+            'Yellowstone Yellowstone Yellowstone Yellowstone Capitol Capitol';
+    }
+    .Zion {
+        height: 420px;
+    }
+}
+
+@media all and (max-width: 1000px) {
+    .GalleryContainer {
+        display: grid;
+        grid-template-areas: 
+            'Arches Arches Arches Arches'
+            'Acadia Acadia Acadia Acadia'
+            'Yosemite Yosemite Yosemite Yosemite'
+            'Rocky Rocky Rocky Rocky'
+            'Yellowstone Yellowstone Yellowstone Yellowstone';
+        grid-column-gap: 42px;
+        grid-row-gap: 84px;
+        background-color: #f4f4f4;
+        padding: 32px;
+    }
+
+    .GrandTeton, .Glacier, .Zion, .Capitol {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .ReviewText .MuiButton-sizeLarge {
+        height: 42px;
+        width: 86px;
+        font-size: 12px;
+    }
+    .ReviewTitle {
+        font-size: 32px;
+    }
+    .ReviewContent {
+        font-size: 18px;
+    }
+}

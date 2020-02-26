@@ -1,0 +1,49 @@
+.PostFormTitle {
+    font-size: 42px;
+}
+
+.PostForm {
+    position: relative;
+    max-width: 520px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 32px 24px;
+    min-height: 80vh;
+}
+
+.MuiInput-formControl {
+    width: 480px;
+    margin: 24px 0;
+}
+
+.PostForm .MuiButton-sizeLarge {
+    height: 58px;
+    width: 120px;
+    font-size: 18px;
+    margin: 24px;
+}
+
+.ParkShowSkeletonContainer {
+    min-height: 88vh;
+
+}
+
+
+
+@media all and (max-width: 640px) {
+    .PostForm .MuiButton-sizeLarge {
+        height: 36px;
+        width: 80px;
+        font-size: 12px;
+        margin: 16px;
+    }
+
+    .MuiInput-formControl {
+        width: 240px;
+        margin: 24px 0;
+    }
+
+    .PostFormTitle {
+        font-size: 36px;
+    }
+}

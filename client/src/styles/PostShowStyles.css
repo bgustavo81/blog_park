@@ -1,0 +1,40 @@
+.PostShowContainer {
+    min-height: 88vh;
+    background-color: #f4f4f4;
+}
+
+.PostShowTitle {
+    font-size: 48px;
+    text-align: center;
+}
+
+.PostShowHero {
+    background-image: url('/images/yosemite.jpg');
+    background-color: #f4f4f4;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.PostShowContent {
+    margin: 32px auto;
+    max-width: 960px;
+}
+
+.PostShowInfo {
+    padding: 32px;
+    position: relative;
+    min-height: 420px;
+}
+
+.PostShowLink {
+    position: relative;
+    top: 180px;
+    text-align: center;
+}
+.ParkShowSkeletonContainer div {
+    max-width: 960px;
+    margin: 0 auto;
+}

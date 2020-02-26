@@ -1,0 +1,77 @@
+.MainContent {
+    position: relative;
+    padding: 24px 54px;
+    font-size: 24px;
+    background-color: #f4f4f4;  
+}
+
+.MainContentText {
+    position: relative;
+    max-width: 860px;
+    margin: 64px auto;
+}
+
+
+h3 {
+    text-align: center;
+}
+
+.twoParkContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    font-family: "chaparral-pro","Times New Roman",Times,Georgia,"DejaVu Serif",serif;
+}
+
+.yosemite {
+    background-image: url('/images/yosemite.jpg');
+    color: #f4f4f4;
+    height: 640px;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    padding: 24px;
+}
+
+.rockBridge {
+    background-image: url('/images/rock-bridge.jpg');
+    color: #f4f4f4;
+    height: 640px;
+    background-position: center;
+    background-size: cover;
+    text-align: center;  
+    padding: 24px; 
+}
+
+.twoParkContainer p {
+    position: relative;
+    top: 480px;
+    font-size: 24px;
+}
+
+@media all and (max-width: 992px) {
+    .twoParkContainer {
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 50%;
+        grid-row-gap: 16px;
+        padding: 32px;
+        background-color: #f4f4f4;
+    }
+    .yosemite {
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        height: 420px;
+    }
+    .rockBridge {
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        height: 420px;
+    }
+    .twoParkContainer p {
+        position: relative;
+        top: 300px;
+        font-size: 24px;
+    }
+    .MainContentText {
+        font-size: 20px;
+    }
+}
+
+
