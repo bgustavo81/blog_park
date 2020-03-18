@@ -32,8 +32,7 @@ class PostList extends Component {
         }
     }
 
-    renderList() {
-        let posts = this.props.posts.filter(post => post !== "");
+    renderList(posts) {
         return posts.map(posts => {
             return (
                 <div key={posts.id} className="PostListCard">
@@ -79,8 +78,7 @@ class PostList extends Component {
                     <div className="PostListCreateButton">
                     {this.renderCreate()}
                     </div>
-                    <div className="PostListArticles">{this.renderList()}</div>
-                    {this.renderCreate()}
+                    <div className="PostListArticles">{this.renderList(posts)}</div>
                 </React.Fragment>
             ) : (
                 <div className="ParkShowSkeletonContainer">
@@ -96,9 +94,8 @@ class PostList extends Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(Object.values(state.posts));
     return { 
-        posts: Object.values(state.posts).reverse(),
+        posts: state.posts.posts,
         currentUserId: state.auth.userId,
         isSignedIn: state.auth.isSignedIn
     };

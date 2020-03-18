@@ -14,7 +14,6 @@ class PostShow extends Component {
     
     render() {
         const post = this.props.posts
-        console.log(post);
         if (!this.props.posts) {
             return (
                 <div className="PostShowContainer">
@@ -46,9 +45,9 @@ class PostShow extends Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return { 
-        posts: state.posts[ownProps.match.params.id],
+        posts: state.posts.post,
     }
 }
 

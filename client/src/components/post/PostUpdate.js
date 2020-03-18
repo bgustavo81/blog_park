@@ -27,8 +27,7 @@ class PostUpdate extends React.Component {
                 </div>
             )
         }
-        let items = _.pick(posts, 'title', 'content');
-        // console.log(items);
+        let items = {title: posts.title, content: posts.content}
         return (
         <div>
             <h3 className="PostFormTitle">Edit your post</h3>
@@ -43,7 +42,7 @@ class PostUpdate extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        posts: state.posts[ownProps.match.params.id],
+        posts: state.posts.post,
     };
 };
 

@@ -21,6 +21,13 @@ module.exports = class Post {
         );
     };
 
+    static getLatestPostByAuthor(userId) {
+        return pool.query(
+            `SELECT * FROM posts where userid = $1 ORDER BY id DESC LIMIT 1`,
+            [userId]
+        );
+    };
+
     createPost() {
         return pool.query(
             'INSERT INTO posts (title, content, userid) VALUES ($1, $2, $3)',

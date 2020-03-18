@@ -1,56 +1,64 @@
-const Post = require("../model/post");
+const express = require('express');
+const router = express.Router();
+const Post = require("../../models/post");
 
-exports.getPost = async (req, res, next) => {
+//@route GET api/posts/:id
+//@desc Get a single message
+//@access Public
+router.get("/:id", async (req, res, next) => {
     const id = req.params.id
     try {
         const result = await Post.getPostById(id);
-        let status = res.status(200).json({
-            message: `post ${id} was retrieved`,
-            post: result.rows
-        })
+        let status = res.status(200).json(result.rows[0])
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
         }
     }
-};
+});
 
-exports.getPosts = async (req, res, next) => {
+//@route GET api/posts
+//@desc Get all messages
+//@access Public
+router.get("/", async (req, res, next) => {
     try {
         const result = await Post.getPosts();
-        res.status(200).json({
-            message: 'Fetched posts sucessfully.',
-            posts: result.rows
-        })
+        res.status(200).json(result.rows);
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
         }
         next(err);
     }
-}
+});
 
-
-exports.createPost = async (req, res, next) => {
+//@route POST api/posts
+//@desc POST a message
+//@access Public
+router.post("/", async (req, res, next) => {
     const title = req.body.title;
     const content = req.body.content;
     const userId = req.body.userId;
-    const post = new Post(title, content, userId)
+    const post = new Post(null, title, content, userId)
     try {
         post.title = title;
         post.content = content;
         post.userId = userId;
         await post.createPost()
-        res.status(201).end();
+        const result = await Post.getLatestPostByAuthor(userId);
+        res.status(201).json(result.rows[0]);
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
         }
         next(err);
     }
-};
+});
 
-exports.updatePost = async (req, res, next) => {
+//@route PATCH api/posts/:id
+//@desc PATCH a message
+//@access Public
+router.patch("/:id", async (req, res, next) => {
     const id = req.params.id;
     const title = req.body.title;
     const content = req.body.content;
@@ -65,6 +73,20 @@ exports.updatePost = async (req, res, next) => {
         post.title = title;
         post.content = content;
         await Post.updatePost(title, content, id);
+        const result = await Post.getPostById(id);
+        res.status(200).json(result.rows[0]);
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+});
+
+router.delete("/:id", async (req, res, next) => {
+    const id = req.params.id;
+    try {
+        await Post.deletePost(id)
         res.status(200).end();
     } catch (err) {
         if (!err.statusCode) {
@@ -72,25 +94,8 @@ exports.updatePost = async (req, res, next) => {
         }
         next(err);
     }
-}
+})
 
-exports.deletePost = (req, res, next) => {
-    const id = req.params.id;
-    try {
-        Post.deletePost(id)
-        .then(post => {
-            if (!post) {
-                const error = new Error('Could not delete post.');
-                error.statusCode = 404;
-                throw error;
-            }
-            res.status(200).json({ message: "Post deleted", post: id});
-        })
+module.exports = router;
 
-    } catch (err) {
-        if (!err.statusCode) {
-            err.statusCode = 500;
-        }
-        next(err);
-    }
-};
+

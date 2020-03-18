@@ -25,7 +25,6 @@ class ParkShow extends React.Component {
         this.setState({
             npsInfo: response.data.data[0]
         });
-        console.log(this.state)
     };
 
     
