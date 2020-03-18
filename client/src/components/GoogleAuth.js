@@ -7,7 +7,7 @@ class GoogleAuth extends React.Component {
     componentDidMount() {
         window.gapi.load('client:auth2', () => {
             window.gapi.client.init({
-                clientId: '832729176105-rfl745as6qlmv98nlpso3qmifln9dqd1.apps.googleusercontent.com',
+                clientId: '526846473037-jd05admibiead0hh9eg21tjcgapdmsf0.apps.googleusercontent.com',
                 scope: 'email'
             }).then( () => {
                 this.auth = window.gapi.auth2.getAuthInstance();
