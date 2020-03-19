@@ -81,7 +81,7 @@ export default function MapNav() {
         <div style={{ width: "100%", height: "90vh" }}>
             <WrappedMap
                 isMarkerShown
-                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyC9nuFsqkCkLbQk1OQZWGZNEQivHsUNzEg`}
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_API_KEY}`}
                 loadingElement={<div style={{ height: '90vh' }} />}
                 containerElement={<div style={{ height: '90vh' }} />}
                 mapElement={<div style={{ height: '90vh' }} />}

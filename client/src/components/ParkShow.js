@@ -19,7 +19,7 @@ class ParkShow extends React.Component {
     };
     async componentDidMount() {
         const response = await nationalParks.get(
-            `https://developer.nps.gov/api/v1/parks?parkCode=${this.state.selectedPark}&api_key=H35lG1TDbvRLi4nbvT7Wxi6284cksQwG3oZmJ9mW`
+            `https://developer.nps.gov/api/v1/parks?parkCode=${this.state.selectedPark}&api_key=${process.env.NPS_API_KEY}`
         );
         
         this.setState({
